@@ -1,0 +1,12 @@
+Source: ros-kilted-cm-topic-hardware-component
+Section: misc
+Priority: optional
+Maintainer: Marq Rasmussen <marq.razz@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kilted-ament-cmake, ros-kilted-ament-cmake-gmock <!nocheck>, ros-kilted-hardware-interface, ros-kilted-hardware-interface <!nocheck>, ros-kilted-pal-statistics-msgs, ros-kilted-rclcpp, ros-kilted-ros2-control-cmake, ros-kilted-ros2-control-test-assets <!nocheck>, ros-kilted-ros-workspace
+Homepage: https://github.com/ros-controls/topic_based_hardware_interfaces
+Standards-Version: 3.9.2
+
+Package: ros-kilted-cm-topic-hardware-component
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kilted-hardware-interface, ros-kilted-pal-statistics-msgs, ros-kilted-rclcpp, ros-kilted-ros-workspace
+Description: ros2_control hardware component using pal_statistics messages from controller_manager introspection
