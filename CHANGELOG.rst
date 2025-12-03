@@ -2,6 +2,13 @@
 Changelog for package joint_state_topic_hardware_interface
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.0 (2025-12-03)
+------------------
+* Rewrite resource storage and add mimic test (`#44 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/44>`_)
+* Fix integration test (`#42 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/42>`_)
+* Rename shadowed variables (`#37 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/37>`_)
+* Contributors: Christoph Fröhlich
+
 0.2.1 (2025-10-02)
 ------------------
 * Activate test and fix it for jazzy (`#34 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/34>`_)
