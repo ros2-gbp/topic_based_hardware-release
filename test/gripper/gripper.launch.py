@@ -23,11 +23,13 @@ SCRIPT_PATH = Path(os.path.realpath(__file__)).parent
 
 
 def generate_launch_description():
-    ros2_controllers_file = Path(SCRIPT_PATH / "ros2_controllers.yaml")
+    ros2_controllers_file = str(Path(SCRIPT_PATH / "gripper_controller_position.yaml"))
     robot_description = {
-        "robot_description": xacro.process_file(SCRIPT_PATH / "rrr.urdf.xacro").toxml(),
+        "robot_description": xacro.process_file(
+            SCRIPT_PATH / "gripper.urdf.xacro"
+        ).toxml(),
     }
-    controllers = ["joint_state_broadcaster", "joint_trajectory_controller"]
+    controllers = ["joint_state_broadcaster", "gripper_controller"]
     return LaunchDescription(
         [
             Node(
@@ -47,7 +49,7 @@ def generate_launch_description():
             Node(
                 package="controller_manager",
                 executable="spawner",
-                arguments=[controller],
+                arguments=[controller, "--param-file", ros2_controllers_file],
             )
             for controller in controllers
         ],
