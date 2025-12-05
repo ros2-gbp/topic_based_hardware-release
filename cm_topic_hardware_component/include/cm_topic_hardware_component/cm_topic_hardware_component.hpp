@@ -1,4 +1,4 @@
-// Copyright 2025 ros2_control Development Team
+// Copyright 2025 AIT Austrian Institute of Technology GmbH
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/* Author: Jafar Abdi */
+/* Author: Christoph Froehlich */
 
 #pragma once
 
@@ -21,19 +21,17 @@
 #include <string>
 
 // ROS
-#include <hardware_interface/system_interface.hpp>
-#include <hardware_interface/types/hardware_component_interface_params.hpp>
-#include <rclcpp/node.hpp>
-#include <rclcpp/publisher.hpp>
-#include <rclcpp/subscription.hpp>
+#include "hardware_interface/system_interface.hpp"
+#include "hardware_interface/types/hardware_component_interface_params.hpp"
+#include "pal_statistics_msgs/msg/statistics_names.hpp"
+#include "pal_statistics_msgs/msg/statistics_values.hpp"
+#include "rclcpp/subscription.hpp"
 
-#include <sensor_msgs/msg/joint_state.hpp>
-
-namespace joint_state_topic_hardware_interface
+namespace cm_topic_hardware_component
 {
 using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;
 
-class JointStateTopicSystem : public hardware_interface::SystemInterface
+class CMTopicSystem : public hardware_interface::SystemInterface
 {
 public:
   CallbackReturn on_init(const hardware_interface::HardwareComponentInterfaceParams& params) override;
@@ -43,14 +41,10 @@ public:
   hardware_interface::return_type write(const rclcpp::Time& /*time*/, const rclcpp::Duration& /*period*/) override;
 
 private:
-  rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr topic_based_joint_states_subscriber_;
-  rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr topic_based_joint_commands_publisher_;
-  sensor_msgs::msg::JointState latest_joint_state_;
-  bool sum_wrapped_joint_states_{ false };
-
-  // If the difference between the current joint state and joint command is less than this value,
-  // the joint command will not be published.
-  double trigger_joint_command_threshold_ = 1e-5;
+  rclcpp::Subscription<pal_statistics_msgs::msg::StatisticsNames>::SharedPtr pal_names_subscriber_;
+  rclcpp::Subscription<pal_statistics_msgs::msg::StatisticsValues>::SharedPtr pal_values_subscriber_;
+  pal_statistics_msgs::msg::StatisticsValues latest_pal_values_;
+  std::unordered_map<uint32_t, std::vector<std::string>> pal_statistics_names_per_topic_;
 };
 
-}  // namespace joint_state_topic_hardware_interface
+}  // namespace cm_topic_hardware_component
