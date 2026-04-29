@@ -1,0 +1,12 @@
+Source: ros-lyrical-joint-state-topic-hardware-interface
+Section: misc
+Priority: optional
+Maintainer: Marq Rasmussen <marq.razz@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-lyrical-ament-cmake, ros-lyrical-ament-cmake-gmock <!nocheck>, ros-lyrical-ament-cmake-ros <!nocheck>, ros-lyrical-angles, ros-lyrical-control-msgs <!nocheck>, ros-lyrical-controller-manager <!nocheck>, ros-lyrical-forward-command-controller <!nocheck>, ros-lyrical-hardware-interface, ros-lyrical-joint-state-broadcaster <!nocheck>, ros-lyrical-joint-trajectory-controller <!nocheck>, ros-lyrical-launch <!nocheck>, ros-lyrical-launch-ros <!nocheck>, ros-lyrical-launch-testing <!nocheck>, ros-lyrical-launch-testing-ament-cmake <!nocheck>, ros-lyrical-rclcpp, ros-lyrical-rclpy <!nocheck>, ros-lyrical-robot-state-publisher <!nocheck>, ros-lyrical-ros2-control-cmake, ros-lyrical-ros2-control-test-assets <!nocheck>, ros-lyrical-sensor-msgs, ros-lyrical-topic-tools <!nocheck>, ros-lyrical-xacro <!nocheck>, ros-lyrical-ros-workspace
+Homepage: https://github.com/ros-controls/topic_based_hardware_interfaces
+Standards-Version: 3.9.2
+
+Package: ros-lyrical-joint-state-topic-hardware-interface
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lyrical-angles, ros-lyrical-hardware-interface, ros-lyrical-rclcpp, ros-lyrical-sensor-msgs, ros-lyrical-ros-workspace
+Description: ros2_control hardware interface for JointState topic based control
