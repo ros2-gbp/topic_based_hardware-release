@@ -1,0 +1,12 @@
+Source: ros-lyrical-cm-topic-hardware-component
+Section: misc
+Priority: optional
+Maintainer: Marq Rasmussen <marq.razz@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-lyrical-ament-cmake, ros-lyrical-ament-cmake-gmock <!nocheck>, ros-lyrical-hardware-interface, ros-lyrical-hardware-interface <!nocheck>, ros-lyrical-pal-statistics-msgs, ros-lyrical-rclcpp, ros-lyrical-ros2-control-cmake, ros-lyrical-ros2-control-test-assets <!nocheck>, ros-lyrical-ros-workspace
+Homepage: https://github.com/ros-controls/topic_based_hardware_interfaces
+Standards-Version: 3.9.2
+
+Package: ros-lyrical-cm-topic-hardware-component
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lyrical-hardware-interface, ros-lyrical-pal-statistics-msgs, ros-lyrical-rclcpp, ros-lyrical-ros-workspace
+Description: ros2_control hardware component using pal_statistics messages from controller_manager introspection
