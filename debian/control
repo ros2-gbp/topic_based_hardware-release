@@ -1,0 +1,12 @@
+Source: ros-jazzy-cm-topic-hardware-component
+Section: misc
+Priority: optional
+Maintainer: "Marq Rasmussen" <marq.razz@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-jazzy-ament-cmake, ros-jazzy-ament-cmake-gmock <!nocheck>, ros-jazzy-hardware-interface, ros-jazzy-hardware-interface <!nocheck>, ros-jazzy-pal-statistics-msgs, ros-jazzy-rclcpp, ros-jazzy-ros2-control-cmake, ros-jazzy-ros2-control-test-assets <!nocheck>, ros-jazzy-ros-workspace
+Homepage: https://github.com/ros-controls/topic_based_hardware_interfaces
+Standards-Version: 3.9.2
+
+Package: ros-jazzy-cm-topic-hardware-component
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-jazzy-hardware-interface, ros-jazzy-pal-statistics-msgs, ros-jazzy-rclcpp, ros-jazzy-ros-workspace
+Description: ros2_control hardware component using pal_statistics messages from controller_manager introspection
