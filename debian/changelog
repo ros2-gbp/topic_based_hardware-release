@@ -1,0 +1,43 @@
+ros-rolling-joint-state-topic-hardware-interface (1.1.0-1trixie) trixie; urgency=high
+
+  * Publish JointState commands for velocity-only and effort-only interfaces (#118 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/118>)
+  * Bump C++ version to C++20 (#119 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/119>)
+  * Bump version of pre-commit hooks (#98 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/98>)
+  * Add alias for old topic_based_ros2_control plugin name (#87 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/87>)
+  * Contributors: Christoph Fröhlich, Ted Vanderfeen, github-actions[bot]
+
+ -- "Marq Rasmussen" <marq.razz@gmail.com>  Wed, 13 May 2026 06:00:00 -0000
+
+ros-rolling-joint-state-topic-hardware-interface (1.0.0-1trixie) trixie; urgency=high
+
+  * Rewrite resource storage and add mimic test (#44 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/44>)
+  * Fix integration test (#42 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/42>)
+  * Rename shadowed variables (#37 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/37>)
+  * Contributors: Christoph Fröhlich
+
+ -- "Marq Rasmussen" <marq.razz@gmail.com>  Wed, 03 Dec 2025 07:00:00 -0000
+
+ros-rolling-joint-state-topic-hardware-interface (0.2.1-1trixie) trixie; urgency=high
+
+  * Activate test and fix it for jazzy (#34 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/34>)
+  * Bump version of pre-commit hooks (#26 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/26>)
+  * Contributors: Christoph Fröhlich, github-actions[bot]
+
+ -- "Marq Rasmussen" <marq.razz@gmail.com>  Thu, 02 Oct 2025 06:00:00 -0000
+
+ros-rolling-joint-state-topic-hardware-interface (0.2.0-1trixie) trixie; urgency=high
+
+  * Deactivate all tests (#24 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/24>)
+  * Fix headings (#13 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/13>)
+  * Switched to Default Node from CM Executor and updated to new params API (#6 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/6>)
+  * Add common repository features from ros-controls (#8 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/8>)
+  * Switch to on_init(HardwareComponentInterfaceParams) (#11 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/11>)
+  * Add Bence Magyar as maintainer (#4 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/4>)
+  * Relicense to Apache 2.0 (#3 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/3>)
+  * Fix CI (#1 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/1>)
+  * rename to joint_state_topic_hardware_interface
+  * Contributors: Bence Magyar, Christoph Fröhlich, Marq Rasmussen, Soham Patil
+
+ -- "Marq Rasmussen" <marq.razz@gmail.com>  Wed, 20 Aug 2025 06:00:00 -0000
+
+
