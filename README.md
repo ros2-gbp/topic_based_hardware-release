@@ -1,3 +1,28 @@
+## topic_based_hardware_interfaces (lyrical) - 1.1.0-1
+
+The packages in the `topic_based_hardware_interfaces` repository were released into the `lyrical` distro by running `/usr/bin/bloom-release topic_based_hardware_interfaces -r lyrical` on `Thu, 14 May 2026 14:22:17 -0000`
+
+These packages were released:
+- `cm_topic_hardware_component`
+- `joint_state_topic_hardware_interface`
+
+Version of package(s) in repository `topic_based_hardware_interfaces`:
+
+- upstream repository: https://github.com/ros-controls/topic_based_hardware_interfaces.git
+- release repository: https://github.com/ros2-gbp/topic_based_hardware-release.git
+- rosdistro version: `1.0.0-3`
+- old version: `1.0.0-3`
+- new version: `1.1.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.14.3`
+- catkin_pkg version: `1.1.0`
+- rosdep version: `0.26.0`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## topic_based_hardware_interfaces (jazzy) - 1.1.0-1
 
 The packages in the `topic_based_hardware_interfaces` repository were released into the `jazzy` distro by running `/usr/bin/bloom-release topic_based_hardware_interfaces -r jazzy` on `Wed, 13 May 2026 21:17:00 -0000`
