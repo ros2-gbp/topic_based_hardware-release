@@ -1,30 +1,77 @@
-# Topic Based ros2_control Hardware Interfaces
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![codecov](https://codecov.io/gh/ros-controls/topic_based_hardware_interfaces/graph/badge.svg?token=NS73VKPG9V)](https://codecov.io/gh/ros-controls/topic_based_hardware_interfaces)
+# Joint Command Topic Based System
 
-This is a ROS 2 package for integrating the ros2_control with any system that uses topics to command a robot and publish its state.
+The Joint Command Topic Based System implements a ros2_control `hardware_interface::SystemInterface` supporting command and state interfaces through the ROS topic communication layer. It publishes commands as `control_msgs/JointCommand` messages, one topic per interface type. Only `position`, `velocity` and `effort` command interfaces are supported, anything else is ignored with a warning.
 
-## Contributing
+## Joint command ros2_control urdf tag
 
-As an open-source project, we welcome each contributor, regardless of their background and experience. Pick a [PR](https://github.com/ros-controls/topic_based_hardware_interfaces/pulls) and review it, or [create your own](https://github.com/ros-controls/topic_based_hardware_interfaces/contribute)!
-If you are new to the project, please read the [contributing guide](https://control.ros.org/rolling/doc/contributing/contributing.html) for more information on how to get started. We are happy to help you with your first contribution.
+The `joint_command_topic_hardware_interface` has a few `ros2_control` urdf tags to customize its behavior.
 
-## Content
+### Joint command parameters
 
-- [JointState Topic Hardware Interface](joint_state_topic_hardware_interface/README.md)
-- [JointCommand Topic Hardware Interface](joint_command_topic_hardware_interface/README.md)
-- [Controller Manager Topic Hardware Interface](doc/index.rst#cm_topic_hardware_component)
+* joint_commands_topic: (default: "/robot_joint_commands"). Base topic for the joint command topics. Example: `<param name="joint_commands_topic">/my_topic_joint_commands</param>`.
+* joint_states_topic: (default: "/robot_joint_states"). Example: `<param name="joint_states_topic">/my_topic_joint_states</param>`.
+* trigger_joint_command_threshold: (default: 1e-5). Used to avoid spamming the joint command topic when the difference between the current joint state and the joint command is smaller than this value, set to -1 to always send the joint command. Example: `<param name="trigger_joint_command_threshold">0.001</param>`.
+* sum_wrapped_joint_states: (default: "false"). Used to track the total rotation when the position values reported on the `joint_states_topic` wrap from 2*pi to -2*pi when rotating in the positive direction. (Isaac Sim only reports joint states from 2*pi to -2*pi) Only `position` states are affected. Example: `<param name="sum_wrapped_joint_states">true</param>`.
 
-## Build status
+### Mimic joints
 
-ROS2 Distro | Branch | Build status | Documentation | Package Build
-:---------: | :----: | :----------: | :-----------: | :---------------:
-**Rolling** | [`main`](https://github.com/ros-controls/topic_based_hardware_interfaces/tree/main) | [![Rolling Binary Build](https://github.com/ros-controls/topic_based_hardware_interfaces/actions/workflows/rolling-binary-build.yml/badge.svg?branch=main)](https://github.com/ros-controls/topic_based_hardware_interfaces/actions/workflows/rolling-binary-build.yml) <br> [![Rolling Semi-Binary Build](https://github.com/ros-controls/topic_based_hardware_interfaces/actions/workflows/rolling-semi-binary-build.yml/badge.svg?branch=main)](https://github.com/ros-controls/topic_based_hardware_interfaces/actions/workflows/rolling-semi-binary-build.yml) <br> [![build.ros2.org](https://build.ros2.org/buildStatus/icon?job=Rdev__topic_based_hardware_interfaces__ubuntu_resolute_amd64&subject=build.ros2.org)](https://build.ros2.org/job/Rdev__topic_based_hardware_interfaces__ubuntu_resolute_amd64/) | [Documentation](https://control.ros.org/rolling/doc/topic_based_hardware_interfaces/doc/index.html) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Rbin_uR64__joint_state_topic_hardware_interface__ubuntu_resolute_amd64__binary)](https://build.ros2.org/job/Rbin_uR64__joint_state_topic_hardware_interface__ubuntu_resolute_amd64__binary/)
-**Lyrical** | [`main`](https://github.com/ros-controls/topic_based_hardware_interfaces/tree/main) | see above <br> [![build.ros2.org](https://build.ros2.org/buildStatus/icon?job=Ldev__topic_based_hardware_interfaces__ubuntu_resolute_amd64&subject=build.ros2.org)](https://build.ros2.org/job/Ldev__topic_based_hardware_interfaces__ubuntu_resolute_amd64/) | [Documentation](https://control.ros.org/lyrical/doc/topic_based_hardware_interfaces/doc/index.html) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Lbin_uR64__joint_state_topic_hardware_interface__ubuntu_resolute_amd64__binary)](https://build.ros2.org/job/Lbin_uR64__joint_state_topic_hardware_interface__ubuntu_resolute_amd64__binary/)
-**Kilted** | [`main`](https://github.com/ros-controls/topic_based_hardware_interfaces/tree/main) | see above <br> [![build.ros2.org](https://build.ros2.org/buildStatus/icon?job=Kdev__topic_based_hardware_interfaces__ubuntu_noble_amd64&subject=build.ros2.org)](https://build.ros2.org/job/Kdev__topic_based_hardware_interfaces__ubuntu_noble_amd64/) | [Documentation](https://control.ros.org/kilted/doc/topic_based_hardware_interfaces/doc/index.html) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Kbin_uN64__joint_state_topic_hardware_interface__ubuntu_noble_amd64__binary)](https://build.ros2.org/job/Kbin_uN64__joint_state_topic_hardware_interface__ubuntu_noble_amd64__binary/)
-**Jazzy** | [`main`](https://github.com/ros-controls/topic_based_hardware_interfaces/tree/main) | see above <br> [![build.ros2.org](https://build.ros2.org/buildStatus/icon?job=Jdev__topic_based_hardware_interfaces__ubuntu_noble_amd64&subject=build.ros2.org)](https://build.ros2.org/job/Jdev__topic_based_hardware_interfaces__ubuntu_noble_amd64/) | [Documentation](https://control.ros.org/jazzy/doc/topic_based_hardware_interfaces/doc/index.html) | [![Build Status](https://build.ros2.org/buildStatus/icon?job=Jbin_uN64__joint_state_topic_hardware_interface__ubuntu_noble_amd64__binary)](https://build.ros2.org/job/Jbin_uN64__joint_state_topic_hardware_interface__ubuntu_noble_amd64__binary/)
-**Humble** | only supported with building development version of ros2_control | [![Check Rolling Compatibility on Humble](https://github.com/ros-controls/topic_based_hardware_interfaces/actions/workflows/rolling-compatibility-humble-binary-build.yml/badge.svg)](https://github.com/ros-controls/topic_based_hardware_interfaces/actions/workflows/rolling-compatibility-humble-binary-build.yml) |   |
+Often used with parallel grippers. The relation is declared in the URDF, not with `ros2_control` params:
 
-## Acknowledgements
+```xml
+<joint name="joint2" type="revolute">
+    <mimic joint="joint1" multiplier="-2" offset="0"/>
+    ...
+</joint>
+```
 
-The project has received major contributions from companies and institutions [listed on control.ros.org](https://control.ros.org/rolling/doc/acknowledgements/acknowledgements.html)
+Then mark the joint with `mimic="true"` and give it state interfaces only. Its states come from the mimicked joint instead of the `joint_states_topic`:
+
+```xml
+<joint name="joint2" mimic="true">
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+</joint>
+```
+
+`offset` only applies to `position`. `velocity` and `acceleration` use `multiplier` alone.
+
+## Example
+
+```xml
+        <ros2_control name="name" type="system">
+            <hardware>
+              <plugin>joint_command_topic_hardware_interface/JointCommandTopicSystem</plugin>
+              <param name="joint_commands_topic">/topic_based_joint_commands</param>
+              <param name="joint_states_topic">/topic_based_joint_states</param>
+            </hardware>
+            <joint name="joint_1">
+                <command_interface name="position"/>
+                <command_interface name="velocity"/>
+                <state_interface name="position">
+                  <param name="initial_value">0.0</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            ...
+        </ros2_control>
+```
+
+## Topics
+
+Each `write()` publishes one `control_msgs/JointCommand` per interface type, on topics derived from `joint_commands_topic`:
+
+* `<joint_commands_topic>/position`: joints with a driven `position` command.
+* `<joint_commands_topic>/velocity`: joints with a driven `velocity` command.
+* `<joint_commands_topic>/effort`: joints with a driven `effort` command.
+
+`joint_names` and `values` line up, `interface_name` repeats the interface. With the defaults, a joint with `position` and `velocity` commands publishes to `/robot_joint_commands/position` and `/robot_joint_commands/velocity`.
+
+Command interfaces that no controller writes to hold `NaN`. Those joints are dropped from the message, and if nothing drives an interface type at all its topic stays quiet. Declaring a command interface is not enough to get traffic on the matching topic.
+
+Nothing is published while the summed state-command difference stays at or below `trigger_joint_command_threshold`, which is the normal case once a controller has converged. Set it to -1 to publish every cycle.
+
+### QoS
+
+Command publishers are reliable with a depth of 1, so don't count on them to buffer.
+
+The `joint_states_topic` subscription uses `SensorDataQoS` (best effort, depth 5), which any joint state publisher can match.
