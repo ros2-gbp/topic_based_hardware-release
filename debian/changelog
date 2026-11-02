@@ -1,0 +1,10 @@
+ros-jazzy-joint-command-topic-hardware-interface (1.2.0-1bookworm) bookworm; urgency=high
+
+  * Replace RT buffer with realtime thread safe box (#146 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/146>)
+  * Create unique sphinx labels (#145 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/145>)
+  * Add joint_command_topic_hardware_interface package (#131 <https://github.com/ros-controls/topic_based_hardware_interfaces/issues/131>)
+  * Contributors: Christoph Fröhlich, kamal2730
+
+ -- "Marq Rasmussen" <marq.razz@gmail.com>  Mon, 02 Nov 2026 00:00:00 -0000
+
+
