@@ -1,0 +1,12 @@
+Source: ros-lyrical-joint-command-topic-hardware-interface
+Section: misc
+Priority: optional
+Maintainer: "Marq Rasmussen" <marq.razz@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-lyrical-ament-cmake, ros-lyrical-ament-cmake-gmock <!nocheck>, ros-lyrical-angles, ros-lyrical-control-msgs, ros-lyrical-hardware-interface, ros-lyrical-rclcpp, ros-lyrical-realtime-tools, ros-lyrical-ros2-control-cmake, ros-lyrical-ros2-control-test-assets <!nocheck>, ros-lyrical-sensor-msgs, ros-lyrical-ros-workspace
+Homepage: https://github.com/ros-controls/topic_based_hardware_interfaces
+Standards-Version: 3.9.2
+
+Package: ros-lyrical-joint-command-topic-hardware-interface
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lyrical-angles, ros-lyrical-control-msgs, ros-lyrical-hardware-interface, ros-lyrical-rclcpp, ros-lyrical-realtime-tools, ros-lyrical-sensor-msgs, ros-lyrical-ros-workspace
+Description: ros2_control hardware interface for JointCommand topic based control
