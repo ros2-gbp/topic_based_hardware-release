@@ -1,0 +1,12 @@
+Source: ros-rolling-joint-command-topic-hardware-interface
+Section: misc
+Priority: optional
+Maintainer: "Marq Rasmussen" <marq.razz@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-rolling-ament-cmake, ros-rolling-ament-cmake-gmock <!nocheck>, ros-rolling-angles, ros-rolling-control-msgs, ros-rolling-hardware-interface, ros-rolling-rclcpp, ros-rolling-realtime-tools, ros-rolling-ros2-control-cmake, ros-rolling-ros2-control-test-assets <!nocheck>, ros-rolling-sensor-msgs, ros-rolling-ros-workspace
+Homepage: https://github.com/ros-controls/topic_based_hardware_interfaces
+Standards-Version: 3.9.2
+
+Package: ros-rolling-joint-command-topic-hardware-interface
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-rolling-angles, ros-rolling-control-msgs, ros-rolling-hardware-interface, ros-rolling-rclcpp, ros-rolling-realtime-tools, ros-rolling-sensor-msgs, ros-rolling-ros-workspace
+Description: ros2_control hardware interface for JointCommand topic based control
