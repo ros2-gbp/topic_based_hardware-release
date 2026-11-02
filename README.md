@@ -1,3 +1,29 @@
+## topic_based_hardware_interfaces (kilted) - 1.2.0-1
+
+The packages in the `topic_based_hardware_interfaces` repository were released into the `kilted` distro by running `/usr/bin/bloom-release -r kilted topic_based_hardware_interfaces -y` on `Mon, 02 Nov 2026 13:12:55 -0000`
+
+These packages were released:
+- `cm_topic_hardware_component`
+- `joint_command_topic_hardware_interface`
+- `joint_state_topic_hardware_interface`
+
+Version of package(s) in repository `topic_based_hardware_interfaces`:
+
+- upstream repository: https://github.com/ros-controls/topic_based_hardware_interfaces.git
+- release repository: https://github.com/ros2-gbp/topic_based_hardware-release.git
+- rosdistro version: `1.1.0-1`
+- old version: `1.1.0-1`
+- new version: `1.2.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.14.4`
+- catkin_pkg version: `1.1.1`
+- rosdep version: `0.27.0`
+- rosdistro version: `1.1.0`
+- vcstools version: `0.1.42`
+
+
 ## topic_based_hardware_interfaces (lyrical) - 1.2.0-1
 
 The packages in the `topic_based_hardware_interfaces` repository were released into the `lyrical` distro by running `/usr/bin/bloom-release -r lyrical topic_based_hardware_interfaces -y` on `Mon, 02 Nov 2026 11:35:36 -0000`
